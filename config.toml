@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "http://jackspirou.com/"
+baseurl = "http://www.jackspirou.com/"
 languageCode = "en-us"
 title = "Jack Spirou"
 theme = "hugo-freelancer-theme"
