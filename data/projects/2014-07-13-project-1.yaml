@@ -1,0 +1,8 @@
+modalID: 1
+title: Gophersaurus Framework
+date: 2014-09-01
+img: gophersaurus_homepage.jpg
+client: Gophersaurus Framework
+clientLink: "//github.com/gophersaurus"
+category: Golang API Framework
+description: Gophersaurus is a framework for building API services quickly. It provides a structured MVC scaffold and abstracts away common glue code. <br /><br /> Gophersaurus was forged in the fires of production, and has been used in many of my other projects. <br /><br /> <strong><a target="_blank" href="//github.com/gophersaurus">github.com/gophersaurus</a></strong>

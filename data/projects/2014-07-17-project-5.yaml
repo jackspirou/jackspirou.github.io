@@ -1,0 +1,8 @@
+modalID: 5
+title: Client JS
+date: 2014-07-17
+img: clientjs_homepage.png
+client: Client JS
+clientLink: "//github.com/jackspirou/clientjs"
+category: JavaScript, Digital Fingerprint, Security
+description: ClientJS is a JavaScript library that makes digital fingerprinting easy, while also exposing all browser data-points used in generating fingerprints. <br /><br /> If you want to fingerprint browsers, you are probably also interested in other client-based information, such as screen resolution, operating system, browser type, device type, and much more. <br /><br /> <strong><a target="_blank" href="//github.com/jackspirou/clientjs">github.com/jackspirou/clientjs</a></strong>
