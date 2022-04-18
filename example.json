@@ -1,0 +1,24 @@
+{
+    "bot": {
+        "automationTool": {
+            "status": "processed",
+            "probability": 0
+        },
+        "browserSpoofing": {
+            "status": "processed",
+            "probability": 1,
+            "type": "os"
+        },
+        "searchEngine": {
+            "status": "processed",
+            "probability": 0
+        }
+    },
+    "vm": {
+        "status": "processed",
+        "probability": 0
+    },
+    "ip": "65.128.36.97",
+    "requestId": "01FYSNC6PBPKPT04C65VXB11F4",
+    "verifyCounter": 2
+}
