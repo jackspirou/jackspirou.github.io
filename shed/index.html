@@ -57,6 +57,22 @@
         opacity: 0;
         transition: opacity 0.2s;
       }
+      .mobile-nav {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+      .mobile-nav.open {
+        max-height: 300px;
+      }
+      .tool-item input[type="checkbox"] {
+        margin-right: 8px;
+      }
+      @media (max-width: 768px) {
+        .columns-2 {
+          columns: 1;
+        }
+      }
     </style>
   </head>
   <body class="text-slate-800">
@@ -70,6 +86,8 @@
           <div class="flex items-center">
             <span class="font-bold text-xl text-amber-700">Shed Plan</span>
           </div>
+
+          <!-- Desktop Navigation -->
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <a
@@ -99,11 +117,66 @@
               >
             </div>
           </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-slate-700 hover:text-amber-600 focus:outline-none focus:text-amber-600"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-nav" class="mobile-nav md:hidden">
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-slate-200"
+          >
+            <a
+              href="#overview"
+              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
+              >Overview</a
+            >
+            <a
+              href="#checklist"
+              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
+              >Checklist</a
+            >
+            <a
+              href="#materials"
+              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
+              >Materials</a
+            >
+            <a
+              href="#guide"
+              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
+              >Guide</a
+            >
+            <a
+              href="#diagrams"
+              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
+              >Diagrams</a
+            >
+          </div>
         </div>
       </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <main class="max-w-5xl mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8">
       <section id="overview" class="scroll-mt-20">
         <h1
           class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl"
@@ -192,40 +265,83 @@
             <h3 class="text-xl font-semibold mb-4 flex items-center">
               <span class="text-2xl mr-3">🛠️</span>Tools Required
             </h3>
-            <ul class="space-y-3 text-slate-700 columns-2">
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Safety Glasses &
-                Gloves
+            <ul class="space-y-3 text-slate-700 sm:columns-2">
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Safety Glasses & Gloves</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Shovel & Rake
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Shovel & Rake</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Tape Measure
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Tape Measure</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Stakes & String
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Stakes & String</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>4-foot Level
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>4-foot Level</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Line Level
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Line Level</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Hand Tamper
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Hand Tamper</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Circular Saw
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Circular Saw</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Drill/Impact Driver
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Drill/Impact Driver</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Hammer
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Hammer</span>
               </li>
-              <li class="flex">
-                <span class="text-slate-400 mr-2">☐</span>Framing Square
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
+                <span>Framing Square</span>
               </li>
             </ul>
           </div>
@@ -460,7 +576,9 @@
             class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
           >
             <button
-              class="accordion-header w-full flex justify-between items-center text-left p-6"
+              class="accordion-header w-full flex justify-between items-center text-left p-6 min-h-[60px] hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              aria-expanded="false"
+              aria-controls="phase1-content"
             >
               <span class="text-xl font-semibold"
                 >Phase 1: Site Preparation & Layout</span
@@ -683,6 +801,9 @@
             <h3 class="font-semibold text-center mb-2">
               Top-Down Framing Plan
             </h3>
+            <p class="text-sm text-slate-600 text-center mb-4 md:hidden">
+              Tap components to see descriptions
+            </p>
             <div
               class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[250px] flex flex-col justify-center"
             >
@@ -764,6 +885,9 @@
             <h3 class="font-semibold text-center mb-2">
               Side View (Elevation)
             </h3>
+            <p class="text-sm text-slate-600 text-center mb-4 md:hidden">
+              Tap components to see descriptions
+            </p>
             <div
               class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 h-[250px] flex flex-col"
             >
@@ -828,6 +952,22 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileNav = document.getElementById("mobile-nav");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileNav.classList.toggle("open");
+        });
+
+        // Close mobile nav when clicking a link
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileNav.classList.remove("open");
+          });
+        });
+
         // Navigation Active State
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-link");
@@ -896,29 +1036,67 @@
           });
         });
 
-        // Diagram Tooltip Logic
+        // Diagram Tooltip Logic (Enhanced for Mobile)
         const tooltip = document.getElementById("tooltip");
         const diagramComponents =
           document.querySelectorAll(".diagram-component");
+        let activeTooltip = null;
+
+        // Check if device supports touch
+        const isTouchDevice =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
         diagramComponents.forEach((comp) => {
-          comp.addEventListener("mouseover", (e) => {
-            const text = comp.dataset.tooltipText;
-            if (text) {
-              tooltip.textContent = text;
-              tooltip.style.opacity = "1";
+          if (isTouchDevice) {
+            // Touch devices: click to show/hide tooltip
+            comp.addEventListener("click", (e) => {
+              e.preventDefault();
+              const text = comp.dataset.tooltipText;
+              if (text) {
+                if (activeTooltip === comp) {
+                  // Hide if already active
+                  tooltip.style.opacity = "0";
+                  activeTooltip = null;
+                } else {
+                  // Show new tooltip
+                  tooltip.textContent = text;
+                  tooltip.style.left = `${e.pageX + 15}px`;
+                  tooltip.style.top = `${e.pageY + 15}px`;
+                  tooltip.style.opacity = "1";
+                  activeTooltip = comp;
+                }
+              }
+            });
+          } else {
+            // Desktop: hover behavior
+            comp.addEventListener("mouseover", (e) => {
+              const text = comp.dataset.tooltipText;
+              if (text) {
+                tooltip.textContent = text;
+                tooltip.style.opacity = "1";
+              }
+            });
+
+            comp.addEventListener("mousemove", (e) => {
+              tooltip.style.left = `${e.pageX + 15}px`;
+              tooltip.style.top = `${e.pageY + 15}px`;
+            });
+
+            comp.addEventListener("mouseout", () => {
+              tooltip.style.opacity = "0";
+            });
+          }
+        });
+
+        // Close tooltip when clicking elsewhere (touch devices)
+        if (isTouchDevice) {
+          document.addEventListener("click", (e) => {
+            if (!e.target.closest(".diagram-component")) {
+              tooltip.style.opacity = "0";
+              activeTooltip = null;
             }
           });
-
-          comp.addEventListener("mousemove", (e) => {
-            tooltip.style.left = `${e.pageX + 15}px`;
-            tooltip.style.top = `${e.pageY + 15}px`;
-          });
-
-          comp.addEventListener("mouseout", () => {
-            tooltip.style.opacity = "0";
-          });
-        });
+        }
       });
     </script>
   </body>
