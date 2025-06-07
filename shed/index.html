@@ -931,7 +931,7 @@
               Tap components to see descriptions
             </p>
             <div
-              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[250px] flex justify-center items-center"
+              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[250px] flex flex-col justify-center"
             >
               <div
                 class="diagram-component absolute top-2 left-1/2 -translate-x-1/2 text-xs text-slate-500"
@@ -946,110 +946,101 @@
                 4'
               </div>
 
-              <!-- Main frame structure -->
-              <div class="relative w-full max-w-md">
-                <!-- Left Beam (16' long) -->
+              <!-- Top Beam -->
+              <div
+                class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full relative z-20"
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+              >
+                <!-- Joist Hangers on top beam -->
                 <div
-                  class="diagram-component absolute left-0 top-0 w-8 h-full border-2 border-amber-600 bg-amber-100"
-                  data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+                  class="absolute top-0 left-[20%] w-3 h-2 bg-slate-500 border border-slate-600 diagram-component"
+                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
+                ></div>
+                <div
+                  class="absolute top-0 left-[40%] w-3 h-2 bg-slate-500 border border-slate-600 diagram-component"
+                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
+                ></div>
+                <div
+                  class="absolute top-0 left-[60%] w-3 h-2 bg-slate-500 border border-slate-600 diagram-component"
+                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
+                ></div>
+              </div>
+
+              <!-- Main Joist Area -->
+              <div class="flex-grow relative">
+                <!-- End Joists -->
+                <div
+                  class="diagram-component absolute left-0 top-0 w-6 h-full bg-slate-300 border-2 border-slate-600 shadow-sm z-10"
+                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
+                ></div>
+                <div
+                  class="diagram-component absolute right-0 top-0 w-6 h-full bg-slate-300 border-2 border-slate-600 shadow-sm z-10"
+                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
 
-                <!-- Right Beam (16' long) -->
+                <!-- Interior Joists - Full Height -->
                 <div
-                  class="diagram-component absolute right-0 top-0 w-8 h-full border-2 border-amber-600 bg-amber-100"
-                  data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+                  class="diagram-component absolute left-[20%] top-0 w-5 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Sits in joist hangers."
                 ></div>
-
-                <!-- Joists spanning between beams (4' wide) -->
                 <div
-                  class="absolute left-8 right-8 top-0 h-full flex flex-col justify-around"
-                >
-                  <!-- End Joist -->
-                  <div
-                    class="diagram-component h-6 w-full border-2 border-slate-600 bg-slate-300"
-                    data-tooltip-text="End Joist: 45-inch 2x8 spanning between beams. Face-screwed through beams."
-                  ></div>
-                  <!-- Interior Joists -->
-                  <div
-                    class="diagram-component h-4 w-full border-2 border-slate-600 bg-slate-200"
-                    data-tooltip-text="Interior Joist: 45-inch 2x8 spanning between beams. Sits in hangers."
-                  ></div>
-                  <div
-                    class="diagram-component h-4 w-full border-2 border-slate-600 bg-slate-200"
-                    data-tooltip-text="Interior Joist: 45-inch 2x8 spanning between beams. Sits in hangers."
-                  ></div>
-                  <div
-                    class="diagram-component h-4 w-full border-2 border-slate-600 bg-slate-200"
-                    data-tooltip-text="Interior Joist: 45-inch 2x8 spanning between beams. Sits in hangers."
-                  ></div>
-                  <!-- End Joist -->
-                  <div
-                    class="diagram-component h-6 w-full border-2 border-slate-600 bg-slate-300"
-                    data-tooltip-text="End Joist: 45-inch 2x8 spanning between beams. Face-screwed through beams."
-                  ></div>
-                </div>
-
-                <!-- Support points under left beam -->
+                  class="diagram-component absolute left-[40%] top-0 w-5 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Sits in joist hangers."
+                ></div>
                 <div
-                  class="absolute left-0 top-0 w-8 h-full flex flex-col justify-around items-center text-amber-700 text-lg"
-                >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                </div>
+                  class="diagram-component absolute left-[60%] top-0 w-5 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Sits in joist hangers."
+                ></div>
+              </div>
 
-                <!-- Support points under right beam -->
+              <!-- Bottom Beam -->
+              <div
+                class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full relative z-20"
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+              >
+                <!-- Joist Hangers on bottom beam -->
                 <div
-                  class="absolute right-0 top-0 w-8 h-full flex flex-col justify-around items-center text-amber-700 text-lg"
+                  class="absolute bottom-0 left-[20%] w-3 h-2 bg-slate-500 border border-slate-600 diagram-component"
+                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
+                ></div>
+                <div
+                  class="absolute bottom-0 left-[40%] w-3 h-2 bg-slate-500 border border-slate-600 diagram-component"
+                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
+                ></div>
+                <div
+                  class="absolute bottom-0 left-[60%] w-3 h-2 bg-slate-500 border border-slate-600 diagram-component"
+                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
+                ></div>
+              </div>
+
+              <div
+                class="absolute bottom-[-20px] w-full flex justify-around text-amber-700 text-xl"
+              >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
+                  >▲</span
                 >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                  <span
-                    class="diagram-component"
-                    data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
-                    >▲</span
-                  >
-                </div>
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
+                  >▲</span
+                >
               </div>
             </div>
           </div>
