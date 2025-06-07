@@ -381,6 +381,39 @@
           Use the filters to organize your shopping trip by store department.
         </p>
 
+        <div
+          class="bg-white border-l-4 border-amber-500 text-slate-800 p-4 rounded-lg shadow-md my-8"
+          role="alert"
+        >
+          <div class="flex">
+            <div class="py-1">
+              <svg
+                class="h-6 w-6 text-amber-600 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 9V7a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h1a2 2 0 002-2v-2a2 2 0 00-2-2H9a2 2 0 00-2 2v2a2 2 0 002 2h1m-1-4h8m-4-8V5m0 14v-2"
+                />
+              </svg>
+            </div>
+            <div>
+              <p class="font-bold text-xl">
+                Estimated Total Cost:
+                <span id="total-cost" class="text-amber-700">$665.00</span>
+              </p>
+              <p class="text-sm text-slate-600">
+                Prices are estimates based on mid-2024 Minneapolis, MN retail
+                and will vary.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="my-6 flex flex-wrap gap-2 items-center">
           <button
             class="material-filter-btn active px-4 py-2 text-sm font-semibold border rounded-full"
@@ -437,6 +470,10 @@
                     sides = 10 total).
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$100.00</p>
+                  <p class="text-sm text-slate-500">~$10.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="foundation">
@@ -456,6 +493,10 @@
                     3.4ft³ + buffer for slope & compaction).
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$75.00</p>
+                  <p class="text-sm text-slate-500">~$5.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="lumber">
@@ -473,9 +514,14 @@
                     4x4 - 8 ft. Pressure Treated Lumber
                   </p>
                   <p class="text-sm text-slate-500">
-                    For the foundation supports. Pro Tip: Must be "Ground
-                    Contact" rated. (2 × 96") / 10 posts ≈ 19" per post.
+                    Used to create the 10 support posts that sit in the Tuff
+                    Blocks. Must be "Ground Contact" rated. (2 × 96" boards / 10
+                    posts ≈ 19" per post).
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$30.00</p>
+                  <p class="text-sm text-slate-500">~$15.00 ea.</p>
                 </div>
               </div>
             </li>
@@ -498,6 +544,10 @@
                     the shed.
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$50.00</p>
+                  <p class="text-sm text-slate-500">~$25.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="lumber">
@@ -519,6 +569,10 @@
                     = 3 joists per board).
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$54.00</p>
+                  <p class="text-sm text-slate-500">~$18.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="lumber">
@@ -537,6 +591,10 @@
                     The walking surface. (4' × 16' = 64 ft² floor; 2 × 32 ft²
                     sheets cover it exactly).
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$100.00</p>
+                  <p class="text-sm text-slate-500">~$50.00 ea.</p>
                 </div>
               </div>
             </li>
@@ -559,6 +617,10 @@
                     easily covers the 4'x16' area.
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$20.00</p>
+                  <p class="text-sm text-slate-500">~$20.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="foundation">
@@ -580,6 +642,10 @@
                     8 ft³; 8/0.5 = 16 bags).
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$96.00</p>
+                  <p class="text-sm text-slate-500">~$6.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="hardware">
@@ -597,9 +663,14 @@
                     2x6 Face-Mount Galvanized Joist Hangers
                   </p>
                   <p class="text-sm text-slate-500">
-                    For a strong connection. (5 interior joists × 2 hangers each
-                    = 10 total).
+                    Used to create a strong, right-angle connection for the 5
+                    interior joists to the main beams. (5 interior joists × 2
+                    hangers each = 10 total).
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$15.00</p>
+                  <p class="text-sm text-slate-500">~$1.50 ea.</p>
                 </div>
               </div>
             </li>
@@ -618,9 +689,14 @@
                     1 1/2" Galvanized Joist Hanger Nails
                   </p>
                   <p class="text-sm text-slate-500">
-                    The *only* correct fastener for joist hangers. A single box
-                    is plenty.
+                    Used exclusively for attaching joist hangers. Their hardened
+                    steel is required for hanger load ratings. Do not
+                    substitute.
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$10.00</p>
+                  <p class="text-sm text-slate-500">~$10.00/box</p>
                 </div>
               </div>
             </li>
@@ -639,9 +715,13 @@
                     3" Exterior-Grade Structural Screws
                   </p>
                   <p class="text-sm text-slate-500">
-                    Heavy lifters for critical connections like beam-to-post and
-                    end joists.
+                    For critical wood-to-wood connections: securing beams to
+                    post notches and attaching the two end joists.
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$12.00</p>
+                  <p class="text-sm text-slate-500">~$12.00/box</p>
                 </div>
               </div>
             </li>
@@ -658,9 +738,14 @@
                 <div class="ml-4 flex-1">
                   <p class="font-semibold">2" Exterior-Grade Decking Screws</p>
                   <p class="text-sm text-slate-500">
-                    For locking down the plywood floor (screws every ~6" at
-                    edges, ~12" in field).
+                    Used to fasten the 3/4" plywood sheathing to the joists to
+                    create the final floor surface. Plan for screws every ~6"
+                    along edges and ~12" in the field.
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$12.00</p>
+                  <p class="text-sm text-slate-500">~$12.00/box</p>
                 </div>
               </div>
             </li>
@@ -681,6 +766,10 @@
                     lumber to prevent rot.
                   </p>
                 </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$15.00</p>
+                  <p class="text-sm text-slate-500">~$15.00 ea.</p>
+                </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="hardware">
@@ -696,9 +785,59 @@
                 <div class="ml-4 flex-1">
                   <p class="font-semibold">Ground Anchors / Auger Anchors</p>
                   <p class="text-sm text-slate-500">
-                    To meet wind uplift code and keep your shed put. (1 for each
-                    corner).
+                    The anchors themselves. One for each corner. See next item
+                    for connection hardware.
                   </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$48.00</p>
+                  <p class="text-sm text-slate-500">~$12.00 ea.</p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="anchor-hardware"
+                />
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1 kit
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">Anchor Fastening Hardware</p>
+                  <p class="text-sm text-slate-500">
+                    A kit including steel cable/straps, clamps, and lag screws
+                    to securely connect the ground anchors to the wood frame.
+                  </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$20.00</p>
+                  <p class="text-sm text-slate-500">~$20.00/kit</p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="landscape-staples"
+                />
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1 box
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">Landscape Fabric Staples</p>
+                  <p class="text-sm text-slate-500">
+                    To securely pin the landscape fabric to the ground before
+                    adding gravel.
+                  </p>
+                </div>
+                <div class="ml-4 w-28 text-right flex-shrink-0">
+                  <p class="font-semibold text-lg text-slate-800">$8.00</p>
+                  <p class="text-sm text-slate-500">~$8.00/box</p>
                 </div>
               </div>
             </li>
