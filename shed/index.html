@@ -931,186 +931,173 @@
               Tap components to see descriptions
             </p>
             <div
-              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[320px] flex flex-col justify-center"
+              class="bg-white p-6 rounded-xl shadow-lg border border-slate-100 relative h-[300px] flex flex-col"
             >
+              <!-- Dimension Labels -->
               <div
-                class="diagram-component absolute top-4 left-1/2 -translate-x-1/2 text-sm text-slate-600 bg-white/80 px-2 py-1 rounded shadow-sm"
+                class="diagram-component absolute -top-2 left-1/2 -translate-x-1/2 text-sm text-slate-600 bg-white px-2 py-1 rounded"
                 data-tooltip-text="Overall length of the foundation frame."
               >
-                &lt;-- 16' --&gt;
+                16'
               </div>
               <div
-                class="diagram-component absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-600 bg-white/80 px-2 py-1 rounded shadow-sm"
+                class="diagram-component absolute -right-8 top-1/2 -translate-y-1/2 text-sm text-slate-600 bg-white px-1 py-1 rounded"
                 data-tooltip-text="Overall width of the foundation frame."
               >
                 4'
               </div>
 
               <!-- Top Beam with Posts -->
-              <div class="relative">
+              <div
+                class="diagram-component border-4 border-amber-600 bg-amber-100 h-10 w-full relative"
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+              >
+                <!-- Posts under top beam (5 total, evenly spaced) -->
                 <div
-                  class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full relative z-20"
-                  data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
-                >
-                  <!-- Posts under top beam (5 total, 4 feet apart) -->
-                  <div
-                    class="absolute -bottom-1 left-0 w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
-                  <div
-                    class="absolute -bottom-1 left-[24%] w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component -translate-x-1/2"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
-                  <div
-                    class="absolute -bottom-1 left-[48%] w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component -translate-x-1/2"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
-                  <div
-                    class="absolute -bottom-1 left-[72%] w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component -translate-x-1/2"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
-                  <div
-                    class="absolute -bottom-1 right-0 w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
-                </div>
+                  class="absolute -bottom-2 left-0 w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component"
+                  data-tooltip-text="Corner 4x4 Post with notch supporting the beam"
+                ></div>
+                <div
+                  class="absolute -bottom-2 left-[25%] w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component -translate-x-1/2"
+                  data-tooltip-text="4x4 Post with notch supporting the beam (4' from corner)"
+                ></div>
+                <div
+                  class="absolute -bottom-2 left-[50%] w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component -translate-x-1/2"
+                  data-tooltip-text="Center 4x4 Post with notch supporting the beam (8' from corner)"
+                ></div>
+                <div
+                  class="absolute -bottom-2 left-[75%] w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component -translate-x-1/2"
+                  data-tooltip-text="4x4 Post with notch supporting the beam (12' from corner)"
+                ></div>
+                <div
+                  class="absolute -bottom-2 right-0 w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component"
+                  data-tooltip-text="Corner 4x4 Post with notch supporting the beam"
+                ></div>
               </div>
 
               <!-- Main Joist Area -->
-              <div class="flex-grow relative">
-                <!-- End Joists -->
+              <div class="flex-grow relative bg-gray-50">
+                <!-- End Joists (Different color and style) -->
                 <div
-                  class="diagram-component absolute left-0 top-0 w-6 h-full bg-slate-300 border-2 border-slate-600 shadow-sm z-10"
-                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
+                  class="diagram-component absolute left-0 top-0 w-10 h-full bg-amber-200 border-4 border-amber-700 z-10"
+                  data-tooltip-text="Left End Joist: 2x8 face-screwed directly to the beams. No joist hangers needed."
                 ></div>
                 <div
-                  class="diagram-component absolute right-0 top-0 w-6 h-full bg-slate-300 border-2 border-slate-600 shadow-sm z-10"
-                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
-                ></div>
-
-                <!-- Interior Joists - 16" on center (5 total) -->
-                <!-- First joist at 16" from left end -->
-                <div
-                  class="diagram-component absolute left-[17.5%] top-0 w-4 h-full bg-slate-100 border-2 border-slate-400 shadow-sm -translate-x-1/2"
-                  data-tooltip-text="45-inch 2x8 Interior Joist at 16 inches from left. Sits in joist hangers."
-                ></div>
-                <!-- Second joist at 32" from left end -->
-                <div
-                  class="diagram-component absolute left-[33.5%] top-0 w-4 h-full bg-slate-100 border-2 border-slate-400 shadow-sm -translate-x-1/2"
-                  data-tooltip-text="45-inch 2x8 Interior Joist at 32 inches from left. Sits in joist hangers."
-                ></div>
-                <!-- Third joist at 48" (center) -->
-                <div
-                  class="diagram-component absolute left-[50%] top-0 w-4 h-full bg-slate-100 border-2 border-slate-400 shadow-sm -translate-x-1/2"
-                  data-tooltip-text="45-inch 2x8 Interior Joist at center (48 inches). Sits in joist hangers."
-                ></div>
-                <!-- Fourth joist at 64" from left end -->
-                <div
-                  class="diagram-component absolute left-[66.5%] top-0 w-4 h-full bg-slate-100 border-2 border-slate-400 shadow-sm -translate-x-1/2"
-                  data-tooltip-text="45-inch 2x8 Interior Joist at 64 inches from left. Sits in joist hangers."
-                ></div>
-                <!-- Fifth joist at 80" from left end -->
-                <div
-                  class="diagram-component absolute left-[82.5%] top-0 w-4 h-full bg-slate-100 border-2 border-slate-400 shadow-sm -translate-x-1/2"
-                  data-tooltip-text="45-inch 2x8 Interior Joist at 80 inches from left. Sits in joist hangers."
+                  class="diagram-component absolute right-0 top-0 w-10 h-full bg-amber-200 border-4 border-amber-700 z-10"
+                  data-tooltip-text="Right End Joist: 2x8 face-screwed directly to the beams. No joist hangers needed."
                 ></div>
 
-                <!-- Joist Hangers on top beam -->
-                <div
-                  class="absolute top-0 left-[17.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute top-0 left-[33.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute top-0 left-[50%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute top-0 left-[66.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute top-0 left-[82.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-
-                <!-- Joist Hangers on bottom beam -->
-                <div
-                  class="absolute bottom-0 left-[17.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[33.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[50%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[66.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[82.5%] w-3 h-3 bg-slate-500 border border-slate-600 diagram-component -translate-x-1/2 z-20"
-                  data-tooltip-text="Joist Hanger: Metal bracket that holds the interior joist"
-                ></div>
-              </div>
-
-              <!-- Bottom Beam with Posts -->
-              <div class="relative">
-                <div
-                  class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full relative z-20"
-                  data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
-                >
-                  <!-- Posts under bottom beam (5 total, 4 feet apart) -->
+                <!-- Interior Joists with Hangers (5 total, 16" on center) -->
+                <div class="absolute inset-x-10 top-0 h-full">
+                  <!-- First interior joist at 16" -->
                   <div
-                    class="absolute -top-1 left-0 w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
+                    class="diagram-component absolute left-[10%] top-0 w-6 h-full bg-slate-200 border-2 border-slate-500 -translate-x-1/2"
+                    data-tooltip-text="Interior Joist #1: 2x8 at 16 inches from left end. Sits in joist hangers."
+                  >
+                    <!-- Joist hangers -->
+                    <div
+                      class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                    <div
+                      class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                  </div>
+                  <!-- Second interior joist at 32" -->
                   <div
-                    class="absolute -top-1 left-[24%] w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component -translate-x-1/2"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
+                    class="diagram-component absolute left-[30%] top-0 w-6 h-full bg-slate-200 border-2 border-slate-500 -translate-x-1/2"
+                    data-tooltip-text="Interior Joist #2: 2x8 at 32 inches from left end. Sits in joist hangers."
+                  >
+                    <div
+                      class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                    <div
+                      class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                  </div>
+                  <!-- Third interior joist at 48" (center) -->
                   <div
-                    class="absolute -top-1 left-[48%] w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component -translate-x-1/2"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
+                    class="diagram-component absolute left-[50%] top-0 w-6 h-full bg-slate-200 border-2 border-slate-500 -translate-x-1/2"
+                    data-tooltip-text="Interior Joist #3: 2x8 at center (48 inches). Sits in joist hangers."
+                  >
+                    <div
+                      class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                    <div
+                      class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                  </div>
+                  <!-- Fourth interior joist at 64" -->
                   <div
-                    class="absolute -top-1 left-[72%] w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component -translate-x-1/2"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
+                    class="diagram-component absolute left-[70%] top-0 w-6 h-full bg-slate-200 border-2 border-slate-500 -translate-x-1/2"
+                    data-tooltip-text="Interior Joist #4: 2x8 at 64 inches from left end. Sits in joist hangers."
+                  >
+                    <div
+                      class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                    <div
+                      class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                  </div>
+                  <!-- Fifth interior joist at 80" -->
                   <div
-                    class="absolute -top-1 right-0 w-6 h-6 bg-yellow-900/60 border-2 border-yellow-900 diagram-component"
-                    data-tooltip-text="4x4 Post with notch supporting the beam"
-                  ></div>
+                    class="diagram-component absolute left-[90%] top-0 w-6 h-full bg-slate-200 border-2 border-slate-500 -translate-x-1/2"
+                    data-tooltip-text="Interior Joist #5: 2x8 at 80 inches from left end. Sits in joist hangers."
+                  >
+                    <div
+                      class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                    <div
+                      class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-600 border border-gray-700"
+                    ></div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Ground Anchor Indicators -->
-              <div class="absolute bottom-12 w-full">
+              <!-- Bottom Beam with Posts -->
+              <div
+                class="diagram-component border-4 border-amber-600 bg-amber-100 h-10 w-full relative"
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+              >
+                <!-- Posts under bottom beam (5 total, evenly spaced) -->
                 <div
-                  class="diagram-component absolute left-4 w-4 h-4 bg-red-600 rounded-full"
-                  data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
+                  class="absolute -top-2 left-0 w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component"
+                  data-tooltip-text="Corner 4x4 Post with notch supporting the beam"
                 ></div>
                 <div
-                  class="diagram-component absolute right-4 w-4 h-4 bg-red-600 rounded-full"
-                  data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
+                  class="absolute -top-2 left-[25%] w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component -translate-x-1/2"
+                  data-tooltip-text="4x4 Post with notch supporting the beam (4' from corner)"
+                ></div>
+                <div
+                  class="absolute -top-2 left-[50%] w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component -translate-x-1/2"
+                  data-tooltip-text="Center 4x4 Post with notch supporting the beam (8' from corner)"
+                ></div>
+                <div
+                  class="absolute -top-2 left-[75%] w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component -translate-x-1/2"
+                  data-tooltip-text="4x4 Post with notch supporting the beam (12' from corner)"
+                ></div>
+                <div
+                  class="absolute -top-2 right-0 w-8 h-8 bg-yellow-900 border-2 border-yellow-800 diagram-component"
+                  data-tooltip-text="Corner 4x4 Post with notch supporting the beam"
                 ></div>
               </div>
-              <div class="absolute top-12 w-full">
-                <div
-                  class="diagram-component absolute left-4 w-4 h-4 bg-red-600 rounded-full"
-                  data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
-                ></div>
-                <div
-                  class="diagram-component absolute right-4 w-4 h-4 bg-red-600 rounded-full"
-                  data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
-                ></div>
-              </div>
+
+              <!-- Ground Anchor Indicators (at corners) -->
+              <div
+                class="diagram-component absolute top-14 left-6 w-5 h-5 bg-red-600 rounded-full border-2 border-red-800"
+                data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
+              ></div>
+              <div
+                class="diagram-component absolute top-14 right-6 w-5 h-5 bg-red-600 rounded-full border-2 border-red-800"
+                data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
+              ></div>
+              <div
+                class="diagram-component absolute bottom-14 left-6 w-5 h-5 bg-red-600 rounded-full border-2 border-red-800"
+                data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
+              ></div>
+              <div
+                class="diagram-component absolute bottom-14 right-6 w-5 h-5 bg-red-600 rounded-full border-2 border-red-800"
+                data-tooltip-text="Ground Anchor: Auger-style anchor for wind uplift protection"
+              ></div>
             </div>
           </div>
 
