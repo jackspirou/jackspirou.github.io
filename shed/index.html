@@ -214,9 +214,9 @@
             <h3 class="text-lg font-semibold text-amber-700">
               Leveling Strategy
             </h3>
-            <p class="mt-2 text-3xl font-bold">Cut-to-Fit</p>
+            <p class="mt-2 text-3xl font-bold">Notched Post</p>
             <p class="text-sm text-slate-500">
-              Custom posts for sloped terrain
+              Pro-grade support for sloped terrain
             </p>
           </div>
         </div>
@@ -262,8 +262,18 @@
           <div
             class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
           >
-            <h3 class="text-xl font-semibold mb-4 flex items-center">
-              <span class="text-2xl mr-3">🛠️</span>Tools Required
+            <h3
+              class="text-xl font-semibold mb-4 flex items-center justify-between"
+            >
+              <span class="flex items-center">
+                <span class="text-2xl mr-3">🛠️</span>Tools Required
+              </span>
+              <button
+                id="clear-tools"
+                class="px-2 py-1 text-xs bg-slate-200 hover:bg-slate-300 rounded-md text-slate-700"
+              >
+                Clear All
+              </button>
             </h3>
             <ul class="space-y-3 text-slate-700 sm:columns-2">
               <li class="flex items-center tool-item">
@@ -327,6 +337,13 @@
                   type="checkbox"
                   class="mr-2 text-amber-600 rounded focus:ring-amber-500"
                 />
+                <span>Hand Saw (for notches)</span>
+              </li>
+              <li class="flex items-center tool-item">
+                <input
+                  type="checkbox"
+                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
+                />
                 <span>Drill/Impact Driver</span>
               </li>
               <li class="flex items-center tool-item">
@@ -356,7 +373,7 @@
           Use the filters to organize your shopping trip by store department.
         </p>
 
-        <div class="my-6 flex flex-wrap gap-2">
+        <div class="my-6 flex flex-wrap gap-2 items-center">
           <button
             class="material-filter-btn active px-4 py-2 text-sm font-semibold border rounded-full"
             data-filter="all"
@@ -379,8 +396,16 @@
             class="material-filter-btn px-4 py-2 text-sm font-semibold border rounded-full"
             data-filter="hardware"
           >
-            Hardware & Anchors
+            Hardware & Misc
           </button>
+          <div class="ml-auto flex gap-2">
+            <button
+              id="clear-materials"
+              class="px-3 py-1 text-xs bg-slate-200 hover:bg-slate-300 rounded-md text-slate-700"
+            >
+              Clear Materials
+            </button>
+          </div>
         </div>
 
         <div
@@ -389,6 +414,11 @@
           <ul id="material-list" class="divide-y divide-slate-200">
             <li class="material-item p-4" data-category="foundation">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="tuff-blocks"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   10
                 </div>
@@ -402,6 +432,11 @@
             </li>
             <li class="material-item p-4" data-category="foundation">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="paver-base"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   15
                 </div>
@@ -416,6 +451,11 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="4x4-posts"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   2
                 </div>
@@ -432,6 +472,11 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="2x8-16ft-beams"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   2
                 </div>
@@ -448,6 +493,11 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="2x8-12ft-joists"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   3
                 </div>
@@ -463,6 +513,11 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="plywood-sheets"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   2
                 </div>
@@ -476,6 +531,11 @@
             </li>
             <li class="material-item p-4" data-category="foundation">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="landscape-fabric"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1
                 </div>
@@ -489,21 +549,31 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="joist-hangers"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
-                  14
+                  10
                 </div>
                 <div class="ml-4 flex-1">
                   <p class="font-semibold">
                     2x8 Face-Mount Galvanized Joist Hangers
                   </p>
                   <p class="text-sm text-slate-500">
-                    Ensure they are for 2x8 lumber.
+                    For the 5 interior joists (not the ends).
                   </p>
                 </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="hanger-nails"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 box
                 </div>
@@ -519,6 +589,11 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="structural-screws"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 box
                 </div>
@@ -527,13 +602,18 @@
                     3" Exterior-Grade Structural Screws
                   </p>
                   <p class="text-sm text-slate-500">
-                    For attaching beams to posts.
+                    For beams-to-posts and end joists.
                   </p>
                 </div>
               </div>
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="decking-screws"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 box
                 </div>
@@ -547,6 +627,30 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="wood-preservative"
+                />
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1 can
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">End-Cut Wood Preservative</p>
+                  <p class="text-sm text-slate-500">
+                    Essential for sealing cut ends of treated lumber (e.g.,
+                    Copper-Green).
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
+                  data-item="ground-anchors"
+                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   4
                 </div>
@@ -642,20 +746,22 @@
                   feet apart.
                 </p>
                 <p>
-                  <strong>2. Dig Pads:</strong> At each mark, dig a shallow,
-                  flat-bottomed hole about 12"x12" and 4" deep.
+                  <strong>2. Clear Sod & Level Area:</strong> At each of the 10
+                  marks, clear all grass and organic material down to the bare
+                  soil in a 12"x12" area. Ensure the ground is flat and level.
                 </p>
                 <p>
-                  <strong>3. Fill & Tamp:</strong> Pour 1-2 bags of paver base
-                  into each hole. Vigorously compact the gravel with a hand
-                  tamper until it's rock solid and level.
+                  <strong>3. Create Gravel Pad:</strong> Add a 1-2 inch layer of
+                  paver base onto the cleared soil. Vigorously compact the
+                  gravel with a hand tamper until it's rock solid and perfectly
+                  level.
                 </p>
                 <p>
                   <strong>4. Place & Level Blocks:</strong> Position a Tuff
-                  Block on each pad. Use your 4-foot level to ensure each block
-                  is level. Use the level and a long, straight 2x4 to check that
-                  adjacent blocks are level with each other. Adjust gravel as
-                  needed.
+                  Block on each compacted pad. Use your 4-foot level to ensure
+                  each block is level. Use the level and a long, straight 2x4 to
+                  check that adjacent blocks are level with each other. Adjust
+                  gravel as needed.
                 </p>
               </div>
             </div>
@@ -668,7 +774,7 @@
               class="accordion-header w-full flex justify-between items-center text-left p-6"
             >
               <span class="text-xl font-semibold"
-                >Phase 3: Post & Beam Assembly (The Leveling Process)</span
+                >Phase 3: Notched Post & Beam Assembly</span
               >
               <span
                 class="accordion-icon text-2xl font-light transform transition-transform"
@@ -680,26 +786,36 @@
                 class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
               >
                 <p>
-                  <strong>1. Cut & Place Posts:</strong> Place a long piece of
-                  4x4 into each of the 10 Tuff Blocks. Do not worry about the
-                  height yet.
+                  <strong>1. Place Posts & Beams:</strong> Place a long 4x4 into
+                  each Tuff Block. Rest the two 16-foot 2x8 beams on top of the
+                  posts.
                 </p>
                 <p>
-                  <strong>2. Position Beams:</strong> Lay your two 16-foot 2x8
-                  beams on top of the posts along each long side.
+                  <strong
+                    >2. Level & Mark for Notches (Most Critical Step):</strong
+                  >
+                  Start at the post on the HIGHEST ground. Level the beam and
+                  mark BOTH the top and bottom of the beam on the side of the
+                  post. Repeat for all 10 posts. Each post will have a unique
+                  set of marks.
                 </p>
                 <p>
-                  <strong>3. Level the Frame (Most Critical Step):</strong>
-                  Start at the post on the HIGHEST ground. Cut it to your
-                  desired height. Place the beam on it and use your level to
-                  find the correct height for the next post. Mark, remove, and
-                  cut that post. Repeat for all 10 posts until both beams are
-                  perfectly level and parallel.
+                  <strong>3. Cut the Notches:</strong> Remove a post. Set your
+                  circular saw depth to 1.5 inches (the thickness of a 2x8).
+                  Make multiple passes inside your marks. Clean out the waste
+                  with a hammer and finish the cut square with a hand saw. The
+                  goal is a flat "shelf" for the beam to sit in.
                 </p>
                 <p>
-                  <strong>4. Secure Beams:</strong> Attach the beams to the
-                  posts by driving two 3" structural screws down through the top
-                  of the beam into the center of each 4x4 post.
+                  <strong>4. Seal Cuts (Essential):</strong> Apply end-cut wood
+                  preservative to all freshly cut surfaces on your posts. Let it
+                  dry according to the product's instructions.
+                </p>
+                <p>
+                  <strong>5. Seat & Secure Beams:</strong> Place the posts back
+                  in the Tuff Blocks and seat the beams into the fresh notches.
+                  Secure by driving two 3" structural screws through the side of
+                  the beam into the post for each notch.
                 </p>
               </div>
             </div>
@@ -724,19 +840,21 @@
                 class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
               >
                 <p>
-                  <strong>1. Mark Joist Locations:</strong> On the inside face
-                  of the beams, mark locations for interior joists every 16
-                  inches on center.
+                  <strong>1. Install End Joists:</strong> Place the two end
+                  joists flush with the ends of the beams. Attach them by
+                  driving 3" structural screws through the outside of the 16'
+                  beams into the ends of these joists (3-4 screws per
+                  connection).
                 </p>
                 <p>
-                  <strong>2. Install Joist Hangers:</strong> Align the bottom of
-                  a joist hanger with the bottom of the beam at each mark. Nail
-                  them securely with 1 1/2" joist hanger nails, filling all
-                  available holes.
+                  <strong>2. Mark for Interior Joists:</strong> On the inside
+                  face of the beams, mark locations for the 5 remaining interior
+                  joists every 16 inches on center.
                 </p>
                 <p>
-                  <strong>3. Install Interior Joists:</strong> Drop your 45-inch
-                  2x8 joists into the hangers and secure them with hanger nails.
+                  <strong>3. Install Joist Hangers & Joists:</strong> Attach
+                  joist hangers at the marks and install the interior joists
+                  using 1 1/2" hanger nails.
                 </p>
                 <p>
                   <strong>4. Install Plywood Decking:</strong> Lay your two 4x8
@@ -822,31 +940,35 @@
 
               <div
                 class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full"
-                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This rests on the 4x4 posts."
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
               ></div>
-              <div
-                class="flex-grow flex items-center justify-around px-8 relative"
-              >
+              <div class="flex-grow flex items-center justify-between relative">
                 <div
-                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
-                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
+                  class="diagram-component border-2 border-slate-500 h-full w-4 bg-slate-200"
+                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
+                <div class="flex-grow flex items-center justify-around px-2">
+                  <div
+                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
+                  ></div>
+                  <div
+                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
+                  ></div>
+                  <div
+                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
+                  ></div>
+                </div>
                 <div
-                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
-                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
-                ></div>
-                <div
-                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
-                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
-                ></div>
-                <div
-                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
-                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
+                  class="diagram-component border-2 border-slate-500 h-full w-4 bg-slate-200"
+                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
               </div>
               <div
                 class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full"
-                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This rests on the 4x4 posts."
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
               ></div>
 
               <div
@@ -854,27 +976,27 @@
               >
                 <span
                   class="diagram-component"
-                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
                   class="diagram-component"
-                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
                   class="diagram-component"
-                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
                   class="diagram-component"
-                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
                   class="diagram-component"
-                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
               </div>
@@ -883,7 +1005,7 @@
 
           <div>
             <h3 class="font-semibold text-center mb-2">
-              Side View (Elevation)
+              Side View (Notched Post Detail)
             </h3>
             <p class="text-sm text-slate-600 text-center mb-4 md:hidden">
               Tap components to see descriptions
@@ -895,40 +1017,51 @@
                 class="diagram-component h-4 w-full bg-slate-300"
                 data-tooltip-text="3/4-inch Plywood Sheathing. This is your shed floor."
               ></div>
-              <div class="flex-grow flex flex-col justify-between">
-                <div
-                  class="diagram-component h-8 w-full bg-amber-100 border-2 border-amber-600 flex items-center justify-center text-xs"
-                  data-tooltip-text="16-foot 2x8 Beam."
-                ></div>
-                <div class="flex justify-around h-16">
+              <div class="flex-grow flex flex-col justify-end relative">
+                <div class="flex justify-around items-end h-full">
+                  <!-- Notched Post 1 -->
+                  <div class="relative w-8 h-24">
+                    <div
+                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/50"
+                      data-tooltip-text="Main 4x4 Post."
+                    ></div>
+                    <div
+                      class="diagram-component absolute top-0 right-0 w-1/2 h-full bg-yellow-900/50"
+                      data-tooltip-text="The back of the 4x4 Post supporting the beam."
+                    ></div>
+                    <div
+                      class="diagram-component absolute top-0 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
+                      data-tooltip-text="2x8 Beam seated securely in the post notch for superior strength."
+                    ></div>
+                  </div>
+                  <!-- Notched Post 2 -->
+                  <div class="relative w-8 h-24">
+                    <div
+                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/50"
+                      data-tooltip-text="Main 4x4 Post."
+                    ></div>
+                    <div
+                      class="diagram-component absolute top-0 right-0 w-1/2 h-full bg-yellow-900/50"
+                      data-tooltip-text="The back of the 4x4 Post supporting the beam."
+                    ></div>
+                    <div
+                      class="diagram-component absolute top-0 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
+                      data-tooltip-text="2x8 Beam seated securely in the post notch for superior strength."
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="flex justify-around h-8 -mt-8">
                   <div
-                    class="diagram-component w-6 bg-yellow-900/50"
-                    data-tooltip-text="4x4 Pressure Treated Post. Cut to a custom length to level the frame."
+                    class="diagram-component w-12 h-full bg-gray-500"
+                    data-tooltip-text="Tuff Block. Holds the post."
                   ></div>
                   <div
-                    class="diagram-component w-6 bg-yellow-900/50"
-                    data-tooltip-text="4x4 Pressure Treated Post. Cut to a custom length to level the frame."
-                  ></div>
-                  <div
-                    class="diagram-component w-6 bg-yellow-900/50"
-                    data-tooltip-text="4x4 Pressure Treated Post. Cut to a custom length to level the frame."
+                    class="diagram-component w-12 h-full bg-gray-500"
+                    data-tooltip-text="Tuff Block. Holds the post."
                   ></div>
                 </div>
-                <div class="flex justify-around h-8">
-                  <div
-                    class="diagram-component w-12 bg-gray-500"
-                    data-tooltip-text="Tuff Block. Holds the post."
-                  ></div>
-                  <div
-                    class="diagram-component w-12 bg-gray-500"
-                    data-tooltip-text="Tuff Block. Holds the post."
-                  ></div>
-                  <div
-                    class="diagram-component w-12 bg-gray-500"
-                    data-tooltip-text="Tuff Block. Holds the post."
-                  ></div>
-                </div>
-                <div class="flex justify-around h-4">
+                <div class="flex justify-around h-4 mt-0">
                   <div
                     class="diagram-component w-16 bg-stone-400"
                     data-tooltip-text="Compacted Gravel Pad. Creates a stable base for the Tuff Block."
@@ -952,6 +1085,100 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Local Storage Keys
+        const TOOLS_STORAGE_KEY = "shed-tools-checklist";
+        const MATERIALS_STORAGE_KEY = "shed-materials-checklist";
+
+        // Load saved states from localStorage
+        function loadChecklistStates() {
+          // Load tool checklist states
+          const savedTools = JSON.parse(
+            localStorage.getItem(TOOLS_STORAGE_KEY) || "{}"
+          );
+          document
+            .querySelectorAll('.tool-item input[type="checkbox"]')
+            .forEach((checkbox, index) => {
+              const itemKey = `tool-${index}`;
+              if (savedTools[itemKey]) {
+                checkbox.checked = true;
+              }
+            });
+
+          // Load material checklist states
+          const savedMaterials = JSON.parse(
+            localStorage.getItem(MATERIALS_STORAGE_KEY) || "{}"
+          );
+          document
+            .querySelectorAll(".material-checkbox")
+            .forEach((checkbox) => {
+              const itemKey = checkbox.dataset.item;
+              if (savedMaterials[itemKey]) {
+                checkbox.checked = true;
+              }
+            });
+        }
+
+        // Save checklist states to localStorage
+        function saveToolStates() {
+          const toolStates = {};
+          document
+            .querySelectorAll('.tool-item input[type="checkbox"]')
+            .forEach((checkbox, index) => {
+              const itemKey = `tool-${index}`;
+              toolStates[itemKey] = checkbox.checked;
+            });
+          localStorage.setItem(TOOLS_STORAGE_KEY, JSON.stringify(toolStates));
+        }
+
+        function saveMaterialStates() {
+          const materialStates = {};
+          document
+            .querySelectorAll(".material-checkbox")
+            .forEach((checkbox) => {
+              const itemKey = checkbox.dataset.item;
+              materialStates[itemKey] = checkbox.checked;
+            });
+          localStorage.setItem(
+            MATERIALS_STORAGE_KEY,
+            JSON.stringify(materialStates)
+          );
+        }
+
+        // Clear all buttons
+        document.getElementById("clear-tools").addEventListener("click", () => {
+          document
+            .querySelectorAll('.tool-item input[type="checkbox"]')
+            .forEach((checkbox) => {
+              checkbox.checked = false;
+            });
+          localStorage.removeItem(TOOLS_STORAGE_KEY);
+        });
+
+        document
+          .getElementById("clear-materials")
+          .addEventListener("click", () => {
+            document
+              .querySelectorAll(".material-checkbox")
+              .forEach((checkbox) => {
+                checkbox.checked = false;
+              });
+            localStorage.removeItem(MATERIALS_STORAGE_KEY);
+          });
+
+        // Add event listeners to save states when checkboxes change
+        document
+          .querySelectorAll('.tool-item input[type="checkbox"]')
+          .forEach((checkbox) => {
+            checkbox.addEventListener("change", saveToolStates);
+          });
+
+        document.querySelectorAll(".material-checkbox").forEach((checkbox) => {
+          checkbox.addEventListener("change", saveMaterialStates);
+        });
+
+        // Load initial states
+        loadChecklistStates();
+
         // Mobile Navigation Toggle
         const mobileMenuBtn = document.getElementById("mobile-menu-btn");
         const mobileNav = document.getElementById("mobile-nav");
