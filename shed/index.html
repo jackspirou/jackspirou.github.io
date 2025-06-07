@@ -952,25 +952,25 @@
               ></div>
               <div class="flex-grow flex items-center justify-between relative">
                 <div
-                  class="diagram-component border-2 border-slate-500 h-full w-4 bg-slate-200"
+                  class="diagram-component border-2 border-slate-600 h-full w-6 bg-slate-300 shadow-sm"
                   data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
-                <div class="flex-grow flex items-center justify-around px-2">
+                <div class="flex-grow flex items-center justify-around px-1">
                   <div
-                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    class="diagram-component border-2 border-slate-400 h-full w-5 bg-slate-100 shadow-sm"
                     data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
                   ></div>
                   <div
-                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    class="diagram-component border-2 border-slate-400 h-full w-5 bg-slate-100 shadow-sm"
                     data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
                   ></div>
                   <div
-                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    class="diagram-component border-2 border-slate-400 h-full w-5 bg-slate-100 shadow-sm"
                     data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
                   ></div>
                 </div>
                 <div
-                  class="diagram-component border-2 border-slate-500 h-full w-4 bg-slate-200"
+                  class="diagram-component border-2 border-slate-600 h-full w-6 bg-slate-300 shadow-sm"
                   data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
               </div>
@@ -1021,45 +1021,49 @@
             <div
               class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 h-[250px] flex flex-col"
             >
-              <div
-                class="diagram-component h-4 w-full bg-slate-300"
-                data-tooltip-text="3/4-inch Plywood Sheathing. This is your shed floor."
-              ></div>
               <div class="flex-grow flex flex-col justify-end relative">
-                <div class="flex justify-around items-end h-full">
+                <!-- Plywood sits on top of beams -->
+                <div
+                  class="diagram-component h-4 w-full bg-slate-300 border border-slate-400 mb-0 z-10"
+                  data-tooltip-text="3/4-inch Plywood Sheathing. This is your shed floor."
+                ></div>
+
+                <!-- Posts and Beams Structure -->
+                <div class="flex justify-around items-end h-24 -mt-4">
                   <!-- Notched Post 1 -->
-                  <div class="relative w-8 h-24">
+                  <div class="relative w-8 h-full">
                     <div
-                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/50"
+                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/60"
                       data-tooltip-text="Main 4x4 Post."
                     ></div>
                     <div
-                      class="diagram-component absolute top-0 right-0 w-1/2 h-full bg-yellow-900/50"
+                      class="diagram-component absolute top-4 right-0 w-1/2 h-full bg-yellow-900/60"
                       data-tooltip-text="The back of the 4x4 Post supporting the beam."
                     ></div>
                     <div
-                      class="diagram-component absolute top-0 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
+                      class="diagram-component absolute top-4 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
                       data-tooltip-text="2x8 Beam seated securely in the post notch for superior strength."
                     ></div>
                   </div>
                   <!-- Notched Post 2 -->
-                  <div class="relative w-8 h-24">
+                  <div class="relative w-8 h-full">
                     <div
-                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/50"
+                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/60"
                       data-tooltip-text="Main 4x4 Post."
                     ></div>
                     <div
-                      class="diagram-component absolute top-0 right-0 w-1/2 h-full bg-yellow-900/50"
+                      class="diagram-component absolute top-4 right-0 w-1/2 h-full bg-yellow-900/60"
                       data-tooltip-text="The back of the 4x4 Post supporting the beam."
                     ></div>
                     <div
-                      class="diagram-component absolute top-0 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
+                      class="diagram-component absolute top-4 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
                       data-tooltip-text="2x8 Beam seated securely in the post notch for superior strength."
                     ></div>
                   </div>
                 </div>
 
-                <div class="flex justify-around h-8 -mt-8">
+                <!-- Tuff Blocks -->
+                <div class="flex justify-around h-8">
                   <div
                     class="diagram-component w-12 h-full bg-gray-500"
                     data-tooltip-text="Tuff Block. Holds the post."
@@ -1069,7 +1073,9 @@
                     data-tooltip-text="Tuff Block. Holds the post."
                   ></div>
                 </div>
-                <div class="flex justify-around h-4 mt-0">
+
+                <!-- Gravel Pads -->
+                <div class="flex justify-around h-4">
                   <div
                     class="diagram-component w-16 bg-stone-400"
                     data-tooltip-text="Compacted Gravel Pad. Creates a stable base for the Tuff Block."
