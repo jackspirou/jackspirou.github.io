@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Plan: 4x16 Shed Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals & Amber -->
+    <!-- Application Structure Plan: A single-page application with a fixed top navigation bar for smooth scrolling between sections. The structure guides the user chronologically through the build process: 1. Project Overview, 2. Pre-Build Checklist (Codes & Tools), 3. Interactive Materials List (with filtering), 4. A step-by-step accordion-style construction guide, and 5. Interactive diagrams. This task-oriented structure breaks the project into manageable phases, reducing cognitive load and improving usability for a DIYer compared to a long, linear document. -->
+    <!-- Visualization & Content Choices: 
+        - Project Specs -> Inform -> Stat Cards (HTML/CSS) -> Justification: Quick, scannable overview.
+        - Local Codes/Tools -> Organize/Inform -> Checklists (HTML/CSS with icons) -> Justification: Actionable, easy-to-digest pre-build tasks.
+        - Materials List -> Organize -> Interactive List with JS Filters -> Interaction: Click buttons to filter by category (Lumber, Hardware, etc.). Justification: Simplifies shopping trips by allowing the user to focus on one department at a time.
+        - Construction Steps -> Organize/Guide -> JS Accordion -> Interaction: Click phase headers to expand/collapse detailed steps. Justification: Prevents information overload and allows focus on the current task.
+        - Diagrams -> Visualize/Learn -> HTML/CSS Diagrams with JS Tooltips -> Interaction: Hover over components to see descriptions. Justification: Offers a clean, interactive, and clearer alternative to ASCII art, enhancing user understanding of the structure.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f7f4; /* Warm neutral background */
+      }
+      @import url("https://rsms.me/inter/inter.css");
+      .nav-link {
+        transition: all 0.2s ease-in-out;
+      }
+      .nav-link.active {
+        color: #d97706; /* Amber-600 */
+        font-weight: 600;
+      }
+      .material-filter-btn.active {
+        background-color: #d97706;
+        color: #ffffff;
+        border-color: #d97706;
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+      .accordion-content.open {
+        max-height: 2000px;
+      }
+      .diagram-component {
+        position: relative;
+        cursor: pointer;
+      }
+      #tooltip {
+        position: absolute;
+        background-color: #1f2937;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        z-index: 50;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+    </style>
+  </head>
+  <body class="text-slate-800">
+    <div id="tooltip"></div>
+
+    <header
+      class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200"
+    >
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <span class="font-bold text-xl text-amber-700">Shed Plan</span>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a
+                href="#overview"
+                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600"
+                >Overview</a
+              >
+              <a
+                href="#checklist"
+                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600"
+                >Checklist</a
+              >
+              <a
+                href="#materials"
+                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600"
+                >Materials</a
+              >
+              <a
+                href="#guide"
+                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600"
+                >Guide</a
+              >
+              <a
+                href="#diagrams"
+                class="nav-link px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-amber-600"
+                >Diagrams</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <section id="overview" class="scroll-mt-20">
+        <h1
+          class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl"
+        >
+          Interactive Plan: 4x16 Shed Foundation
+        </h1>
+        <p class="mt-4 text-xl text-slate-600">
+          A complete guide to building a durable, level shed foundation on a
+          slope using Tuff Blocks. This interactive plan breaks down the project
+          into manageable steps.
+        </p>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div
+            class="bg-white p-6 rounded-xl shadow-md border border-slate-100"
+          >
+            <h3 class="text-lg font-semibold text-amber-700">
+              Final Dimensions
+            </h3>
+            <p class="mt-2 text-3xl font-bold">4' x 16'</p>
+            <p class="text-sm text-slate-500">64 sq. ft. total area</p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-md border border-slate-100"
+          >
+            <h3 class="text-lg font-semibold text-amber-700">
+              Foundation Type
+            </h3>
+            <p class="mt-2 text-3xl font-bold">On-Grade</p>
+            <p class="text-sm text-slate-500">Floating Tuff Block System</p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-md border border-slate-100"
+          >
+            <h3 class="text-lg font-semibold text-amber-700">
+              Leveling Strategy
+            </h3>
+            <p class="mt-2 text-3xl font-bold">Cut-to-Fit</p>
+            <p class="text-sm text-slate-500">
+              Custom posts for sloped terrain
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="checklist" class="mt-20 scroll-mt-20">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+          Pre-Build Checklist
+        </h2>
+        <p class="mt-2 text-lg text-slate-600">
+          Critical considerations before you buy materials or break ground.
+        </p>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
+          >
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+              <span class="text-2xl mr-3">📋</span>Local Codes (Minneapolis, MN)
+            </h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Permits:</strong> Not required for sheds under 200 sq.
+                ft. (This project is 64 sq. ft.).
+              </li>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Frost Line:</strong> Floating foundation is permitted;
+                no deep footings needed.
+              </li>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Anchoring:</strong> Required by MN code. This plan
+                includes ground anchors.
+              </li>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Setbacks:</strong> You must place the shed 3-5 feet
+                from property lines. Verify your local zoning.
+              </li>
+            </ul>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
+          >
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+              <span class="text-2xl mr-3">🛠️</span>Tools Required
+            </h3>
+            <ul class="space-y-3 text-slate-700 columns-2">
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Safety Glasses &
+                Gloves
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Shovel & Rake
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Tape Measure
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Stakes & String
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>4-foot Level
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Line Level
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Hand Tamper
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Circular Saw
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Drill/Impact Driver
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Hammer
+              </li>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Framing Square
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="materials" class="mt-20 scroll-mt-20">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+          Materials & Shopping List
+        </h2>
+        <p class="mt-2 text-lg text-slate-600">
+          Use the filters to organize your shopping trip by store department.
+        </p>
+
+        <div class="my-6 flex flex-wrap gap-2">
+          <button
+            class="material-filter-btn active px-4 py-2 text-sm font-semibold border rounded-full"
+            data-filter="all"
+          >
+            All
+          </button>
+          <button
+            class="material-filter-btn px-4 py-2 text-sm font-semibold border rounded-full"
+            data-filter="foundation"
+          >
+            Foundation
+          </button>
+          <button
+            class="material-filter-btn px-4 py-2 text-sm font-semibold border rounded-full"
+            data-filter="lumber"
+          >
+            Lumber & Sheathing
+          </button>
+          <button
+            class="material-filter-btn px-4 py-2 text-sm font-semibold border rounded-full"
+            data-filter="hardware"
+          >
+            Hardware & Anchors
+          </button>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden"
+        >
+          <ul id="material-list" class="divide-y divide-slate-200">
+            <li class="material-item p-4" data-category="foundation">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  10
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">Tuff Block Foundation Blocks</p>
+                  <p class="text-sm text-slate-500">
+                    The core of your foundation.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="foundation">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  15
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">0.5 cu. ft. Bags of Paver Base</p>
+                  <p class="text-sm text-slate-500">
+                    Crucial: Buy "Paver Base" or "Step 1 Paver Base" for proper
+                    compaction.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="lumber">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  2
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    4x4 - 8 ft. Pressure Treated Lumber
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Pro Tip: Must be rated "Ground Contact". Will be cut into 10
+                    posts.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="lumber">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  2
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    2x8 - 16 ft. Pressure Treated Lumber
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Pro Tip: Must be rated "Ground Contact". These are your main
+                    beams.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="lumber">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  3
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    2x8 - 12 ft. Pressure Treated Lumber
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    To be cut into seven 45" interior joists.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="lumber">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  2
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">4'x8' sheets, 3/4" thick Plywood</p>
+                  <p class="text-sm text-slate-500">
+                    Exterior-grade or pressure-treated. T&G recommended.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="foundation">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    4 ft. x 50 ft. roll of Landscape Fabric
+                  </p>
+                  <p class="text-sm text-slate-500">Prevents weed growth.</p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  14
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    2x8 Face-Mount Galvanized Joist Hangers
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Ensure they are for 2x8 lumber.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1 box
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    1 1/2" Galvanized Joist Hanger Nails
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    Specifically for joist hangers.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1 box
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">
+                    3" Exterior-Grade Structural Screws
+                  </p>
+                  <p class="text-sm text-slate-500">
+                    For attaching beams to posts.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  1 box
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">2" Exterior-Grade Decking Screws</p>
+                  <p class="text-sm text-slate-500">
+                    For securing the plywood floor.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="material-item p-4" data-category="hardware">
+              <div class="flex items-start">
+                <div class="font-bold text-amber-700 w-12 text-center text-2xl">
+                  4
+                </div>
+                <div class="ml-4 flex-1">
+                  <p class="font-semibold">Ground Anchors / Auger Anchors</p>
+                  <p class="text-sm text-slate-500">
+                    At least 15" long, for meeting wind uplift code.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="guide" class="mt-20 scroll-mt-20">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+          Step-by-Step Construction Guide
+        </h2>
+        <p class="mt-2 text-lg text-slate-600">
+          Follow these phases in order. Click each phase to expand the detailed
+          steps.
+        </p>
+
+        <div id="accordion-container" class="mt-8 space-y-4">
+          <div
+            class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
+          >
+            <button
+              class="accordion-header w-full flex justify-between items-center text-left p-6"
+            >
+              <span class="text-xl font-semibold"
+                >Phase 1: Site Preparation & Layout</span
+              >
+              <span
+                class="accordion-icon text-2xl font-light transform transition-transform"
+                >+</span
+              >
+            </button>
+            <div class="accordion-content">
+              <div
+                class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
+              >
+                <p>
+                  <strong>1. Clear & Mark:</strong> Clear a 6x18 foot area.
+                  Drive stakes to mark the four corners of a perfect 4x16 foot
+                  rectangle.
+                </p>
+                <p>
+                  <strong>2. Run String Lines:</strong> Tightly run string
+                  between the stakes to create a visual outline of your
+                  foundation's perimeter.
+                </p>
+                <p>
+                  <strong>3. Square the Frame (Critical Step):</strong> Measure
+                  the two diagonals of your string rectangle (from corner to
+                  corner). Adjust the stakes until the diagonal measurements are
+                  exactly the same. This guarantees a square foundation.
+                </p>
+                <p>
+                  <strong>4. Lay Weed Barrier:</strong> Roll out landscape
+                  fabric over the entire area, going under your string lines.
+                  Secure it with landscape staples.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
+          >
+            <button
+              class="accordion-header w-full flex justify-between items-center text-left p-6"
+            >
+              <span class="text-xl font-semibold"
+                >Phase 2: Foundation Pad & Tuff Block Installation</span
+              >
+              <span
+                class="accordion-icon text-2xl font-light transform transition-transform"
+                >+</span
+              >
+            </button>
+            <div class="accordion-content">
+              <div
+                class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
+              >
+                <p>
+                  <strong>1. Mark Block Locations:</strong> Along your 16-foot
+                  string lines, mark the ground for your 10 Tuff Blocks (5 per
+                  side), with one at each corner and the rest spaced about 4
+                  feet apart.
+                </p>
+                <p>
+                  <strong>2. Dig Pads:</strong> At each mark, dig a shallow,
+                  flat-bottomed hole about 12"x12" and 4" deep.
+                </p>
+                <p>
+                  <strong>3. Fill & Tamp:</strong> Pour 1-2 bags of paver base
+                  into each hole. Vigorously compact the gravel with a hand
+                  tamper until it's rock solid and level.
+                </p>
+                <p>
+                  <strong>4. Place & Level Blocks:</strong> Position a Tuff
+                  Block on each pad. Use your 4-foot level to ensure each block
+                  is level. Use the level and a long, straight 2x4 to check that
+                  adjacent blocks are level with each other. Adjust gravel as
+                  needed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
+          >
+            <button
+              class="accordion-header w-full flex justify-between items-center text-left p-6"
+            >
+              <span class="text-xl font-semibold"
+                >Phase 3: Post & Beam Assembly (The Leveling Process)</span
+              >
+              <span
+                class="accordion-icon text-2xl font-light transform transition-transform"
+                >+</span
+              >
+            </button>
+            <div class="accordion-content">
+              <div
+                class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
+              >
+                <p>
+                  <strong>1. Cut & Place Posts:</strong> Place a long piece of
+                  4x4 into each of the 10 Tuff Blocks. Do not worry about the
+                  height yet.
+                </p>
+                <p>
+                  <strong>2. Position Beams:</strong> Lay your two 16-foot 2x8
+                  beams on top of the posts along each long side.
+                </p>
+                <p>
+                  <strong>3. Level the Frame (Most Critical Step):</strong>
+                  Start at the post on the HIGHEST ground. Cut it to your
+                  desired height. Place the beam on it and use your level to
+                  find the correct height for the next post. Mark, remove, and
+                  cut that post. Repeat for all 10 posts until both beams are
+                  perfectly level and parallel.
+                </p>
+                <p>
+                  <strong>4. Secure Beams:</strong> Attach the beams to the
+                  posts by driving two 3" structural screws down through the top
+                  of the beam into the center of each 4x4 post.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
+          >
+            <button
+              class="accordion-header w-full flex justify-between items-center text-left p-6"
+            >
+              <span class="text-xl font-semibold"
+                >Phase 4: Joist & Decking Installation</span
+              >
+              <span
+                class="accordion-icon text-2xl font-light transform transition-transform"
+                >+</span
+              >
+            </button>
+            <div class="accordion-content">
+              <div
+                class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
+              >
+                <p>
+                  <strong>1. Mark Joist Locations:</strong> On the inside face
+                  of the beams, mark locations for interior joists every 16
+                  inches on center.
+                </p>
+                <p>
+                  <strong>2. Install Joist Hangers:</strong> Align the bottom of
+                  a joist hanger with the bottom of the beam at each mark. Nail
+                  them securely with 1 1/2" joist hanger nails, filling all
+                  available holes.
+                </p>
+                <p>
+                  <strong>3. Install Interior Joists:</strong> Drop your 45-inch
+                  2x8 joists into the hangers and secure them with hanger nails.
+                </p>
+                <p>
+                  <strong>4. Install Plywood Decking:</strong> Lay your two 4x8
+                  sheets of plywood across the frame, perpendicular to the
+                  interior joists. The seam between sheets should land on the
+                  center of a joist.
+                </p>
+                <p>
+                  <strong>5. Secure Decking:</strong> Fasten the plywood with 2"
+                  decking screws every 6 inches along the perimeter and every 12
+                  inches in the center.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
+          >
+            <button
+              class="accordion-header w-full flex justify-between items-center text-left p-6"
+            >
+              <span class="text-xl font-semibold"
+                >Phase 5: Final Anchoring</span
+              >
+              <span
+                class="accordion-icon text-2xl font-light transform transition-transform"
+                >+</span
+              >
+            </button>
+            <div class="accordion-content">
+              <div
+                class="px-6 pb-6 space-y-4 text-slate-700 border-t border-slate-200 pt-4"
+              >
+                <p>
+                  <strong>1. Position Anchors:</strong> At the four corners of
+                  your foundation, screw the auger-style ground anchors into the
+                  ground just inside the frame.
+                </p>
+                <p>
+                  <strong>2. Attach Straps:</strong> Securely fasten a strap or
+                  steel cable from each anchor to the wooden frame (beam or
+                  outer joist). This locks your foundation in place and
+                  satisfies MN code requirements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="diagrams" class="mt-20 scroll-mt-20">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-900">
+          Interactive Diagrams
+        </h2>
+        <p class="mt-2 text-lg text-slate-600">
+          Hover over any component to learn more about it.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-semibold text-center mb-2">
+              Top-Down Framing Plan
+            </h3>
+            <div
+              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[250px] flex flex-col justify-center"
+            >
+              <div
+                class="diagram-component absolute top-2 left-1/2 -translate-x-1/2 text-xs text-slate-500"
+                data-tooltip-text="Overall length of the foundation frame."
+              >
+                &lt;-- 16' --&gt;
+              </div>
+              <div
+                class="diagram-component absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-500"
+                data-tooltip-text="Overall width of the foundation frame."
+              >
+                4'
+              </div>
+
+              <div
+                class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full"
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This rests on the 4x4 posts."
+              ></div>
+              <div
+                class="flex-grow flex items-center justify-around px-8 relative"
+              >
+                <div
+                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
+                ></div>
+                <div
+                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
+                ></div>
+                <div
+                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
+                ></div>
+                <div
+                  class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                  data-tooltip-text="45-inch 2x8 Interior Joist. Spaced 16 inches on center."
+                ></div>
+              </div>
+              <div
+                class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full"
+                data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This rests on the 4x4 posts."
+              ></div>
+
+              <div
+                class="absolute bottom-[-20px] w-full flex justify-around text-amber-700 text-xl"
+              >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  >▲</span
+                >
+                <span
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & 4x4 Post below."
+                  >▲</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-center mb-2">
+              Side View (Elevation)
+            </h3>
+            <div
+              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 h-[250px] flex flex-col"
+            >
+              <div
+                class="diagram-component h-4 w-full bg-slate-300"
+                data-tooltip-text="3/4-inch Plywood Sheathing. This is your shed floor."
+              ></div>
+              <div class="flex-grow flex flex-col justify-between">
+                <div
+                  class="diagram-component h-8 w-full bg-amber-100 border-2 border-amber-600 flex items-center justify-center text-xs"
+                  data-tooltip-text="16-foot 2x8 Beam."
+                ></div>
+                <div class="flex justify-around h-16">
+                  <div
+                    class="diagram-component w-6 bg-yellow-900/50"
+                    data-tooltip-text="4x4 Pressure Treated Post. Cut to a custom length to level the frame."
+                  ></div>
+                  <div
+                    class="diagram-component w-6 bg-yellow-900/50"
+                    data-tooltip-text="4x4 Pressure Treated Post. Cut to a custom length to level the frame."
+                  ></div>
+                  <div
+                    class="diagram-component w-6 bg-yellow-900/50"
+                    data-tooltip-text="4x4 Pressure Treated Post. Cut to a custom length to level the frame."
+                  ></div>
+                </div>
+                <div class="flex justify-around h-8">
+                  <div
+                    class="diagram-component w-12 bg-gray-500"
+                    data-tooltip-text="Tuff Block. Holds the post."
+                  ></div>
+                  <div
+                    class="diagram-component w-12 bg-gray-500"
+                    data-tooltip-text="Tuff Block. Holds the post."
+                  ></div>
+                  <div
+                    class="diagram-component w-12 bg-gray-500"
+                    data-tooltip-text="Tuff Block. Holds the post."
+                  ></div>
+                </div>
+                <div class="flex justify-around h-4">
+                  <div
+                    class="diagram-component w-16 bg-stone-400"
+                    data-tooltip-text="Compacted Gravel Pad. Creates a stable base for the Tuff Block."
+                  ></div>
+                  <div
+                    class="diagram-component w-16 bg-stone-400"
+                    data-tooltip-text="Compacted Gravel Pad. Creates a stable base for the Tuff Block."
+                  ></div>
+                  <div
+                    class="diagram-component w-16 bg-stone-400"
+                    data-tooltip-text="Compacted Gravel Pad. Creates a stable base for the Tuff Block."
+                  ></div>
+                </div>
+              </div>
+              <div class="h-1 w-full bg-green-800/40 mt-1"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Navigation Active State
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 80) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+              link.classList.add("active");
+            }
+          });
+        });
+
+        // Material List Filtering
+        const filterBtns = document.querySelectorAll(".material-filter-btn");
+        const materialItems = document.querySelectorAll(".material-item");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filter = btn.dataset.filter;
+
+            materialItems.forEach((item) => {
+              if (filter === "all" || item.dataset.category === filter) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // Accordion Logic
+        const accordionItems = document.querySelectorAll(".accordion-item");
+        accordionItems.forEach((item) => {
+          const header = item.querySelector(".accordion-header");
+          const content = item.querySelector(".accordion-content");
+          const icon = item.querySelector(".accordion-icon");
+
+          header.addEventListener("click", () => {
+            const isOpen = content.classList.contains("open");
+
+            // Close all others
+            // document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+            // document.querySelectorAll('.accordion-icon').forEach(i => { i.textContent = '+'; i.classList.remove('rotate-45'); });
+
+            if (isOpen) {
+              content.classList.remove("open");
+              icon.textContent = "+";
+              icon.classList.remove("rotate-45");
+            } else {
+              content.classList.add("open");
+              icon.textContent = "−";
+              icon.classList.add("rotate-45");
+            }
+          });
+        });
+
+        // Diagram Tooltip Logic
+        const tooltip = document.getElementById("tooltip");
+        const diagramComponents =
+          document.querySelectorAll(".diagram-component");
+
+        diagramComponents.forEach((comp) => {
+          comp.addEventListener("mouseover", (e) => {
+            const text = comp.dataset.tooltipText;
+            if (text) {
+              tooltip.textContent = text;
+              tooltip.style.opacity = "1";
+            }
+          });
+
+          comp.addEventListener("mousemove", (e) => {
+            tooltip.style.left = `${e.pageX + 15}px`;
+            tooltip.style.top = `${e.pageY + 15}px`;
+          });
+
+          comp.addEventListener("mouseout", () => {
+            tooltip.style.opacity = "0";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -57,22 +57,6 @@
         opacity: 0;
         transition: opacity 0.2s;
       }
-      .mobile-nav {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
-      }
-      .mobile-nav.open {
-        max-height: 300px;
-      }
-      .tool-item input[type="checkbox"] {
-        margin-right: 8px;
-      }
-      @media (max-width: 768px) {
-        .columns-2 {
-          columns: 1;
-        }
-      }
     </style>
   </head>
   <body class="text-slate-800">
@@ -86,8 +70,6 @@
           <div class="flex items-center">
             <span class="font-bold text-xl text-amber-700">Shed Plan</span>
           </div>
-
-          <!-- Desktop Navigation -->
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <a
@@ -117,66 +99,11 @@
               >
             </div>
           </div>
-
-          <!-- Mobile Menu Button -->
-          <div class="md:hidden">
-            <button
-              id="mobile-menu-btn"
-              class="text-slate-700 hover:text-amber-600 focus:outline-none focus:text-amber-600"
-            >
-              <svg
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div id="mobile-nav" class="mobile-nav md:hidden">
-          <div
-            class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-slate-200"
-          >
-            <a
-              href="#overview"
-              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
-              >Overview</a
-            >
-            <a
-              href="#checklist"
-              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
-              >Checklist</a
-            >
-            <a
-              href="#materials"
-              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
-              >Materials</a
-            >
-            <a
-              href="#guide"
-              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
-              >Guide</a
-            >
-            <a
-              href="#diagrams"
-              class="nav-link mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700"
-              >Diagrams</a
-            >
-          </div>
         </div>
       </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto py-4 sm:py-8 px-4 sm:px-6 lg:px-8">
+    <main class="max-w-5xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <section id="overview" class="scroll-mt-20">
         <h1
           class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl"
@@ -237,136 +164,71 @@
               <span class="text-2xl mr-3">📋</span>Local Codes (Minneapolis, MN)
             </h3>
             <ul class="space-y-3 text-slate-700">
-              <li class="flex items-start">
-                <span class="text-amber-600 mr-2 font-bold mt-0.5">✓</span>
-                <div>
-                  <strong>Permits:</strong> Not required for sheds under 200 sq.
-                  ft. (This project is 64 sq. ft.).
-                </div>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Permits:</strong> Not required for sheds under 200 sq.
+                ft. (This project is 64 sq. ft.).
               </li>
-              <li class="flex items-start">
-                <span class="text-amber-600 mr-2 font-bold mt-0.5">✓</span>
-                <div>
-                  <strong>Frost Line:</strong> Floating foundation is permitted;
-                  no deep footings needed.
-                </div>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Frost Line:</strong> Floating foundation is permitted;
+                no deep footings needed.
               </li>
-              <li class="flex items-start">
-                <span class="text-amber-600 mr-2 font-bold mt-0.5">✓</span>
-                <div>
-                  <strong>Anchoring:</strong> Required by MN code. This plan
-                  includes ground anchors.
-                </div>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Anchoring:</strong> Required by MN code. This plan
+                includes ground anchors.
               </li>
-              <li class="flex items-start">
-                <span class="text-amber-600 mr-2 font-bold mt-0.5">✓</span>
-                <div>
-                  <strong>Setbacks:</strong> You must place the shed 3-5 feet
-                  from property lines. Verify your local zoning.
-                </div>
+              <li class="flex">
+                <span class="text-amber-600 mr-2 font-bold">✓</span
+                ><strong>Setbacks:</strong> You must place the shed 3-5 feet
+                from property lines. Verify your local zoning.
               </li>
             </ul>
           </div>
           <div
             class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
           >
-            <h3
-              class="text-xl font-semibold mb-4 flex items-center justify-between"
-            >
-              <span class="flex items-center">
-                <span class="text-2xl mr-3">🛠️</span>Tools Required
-              </span>
-              <button
-                id="clear-tools"
-                class="px-2 py-1 text-xs bg-slate-200 hover:bg-slate-300 rounded-md text-slate-700"
-              >
-                Clear All
-              </button>
+            <h3 class="text-xl font-semibold mb-4 flex items-center">
+              <span class="text-2xl mr-3">🛠️</span>Tools Required
             </h3>
-            <ul class="space-y-3 text-slate-700 sm:columns-2">
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Safety Glasses & Gloves</span>
+            <ul class="space-y-3 text-slate-700 columns-2">
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Safety Glasses &
+                Gloves
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Shovel & Rake</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Shovel & Rake
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Tape Measure</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Tape Measure
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Stakes & String</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Stakes & String
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>4-foot Level</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>4-foot Level
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Line Level</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Line Level
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Hand Tamper</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Hand Tamper
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Circular Saw</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Circular Saw
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Hand Saw (for notches)</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Hand Saw (for notches)
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Drill/Impact Driver</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Drill/Impact Driver
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Hammer</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Hammer
               </li>
-              <li class="flex items-center tool-item">
-                <input
-                  type="checkbox"
-                  class="mr-2 text-amber-600 rounded focus:ring-amber-500"
-                />
-                <span>Framing Square</span>
+              <li class="flex">
+                <span class="text-slate-400 mr-2">☐</span>Framing Square
               </li>
             </ul>
           </div>
@@ -381,7 +243,7 @@
           Use the filters to organize your shopping trip by store department.
         </p>
 
-        <div class="my-6 flex flex-wrap gap-2 items-center">
+        <div class="my-6 flex flex-wrap gap-2">
           <button
             class="material-filter-btn active px-4 py-2 text-sm font-semibold border rounded-full"
             data-filter="all"
@@ -406,14 +268,6 @@
           >
             Hardware & Misc
           </button>
-          <div class="ml-auto flex gap-2">
-            <button
-              id="clear-materials"
-              class="px-3 py-1 text-xs bg-slate-200 hover:bg-slate-300 rounded-md text-slate-700"
-            >
-              Clear Materials
-            </button>
-          </div>
         </div>
 
         <div
@@ -422,11 +276,6 @@
           <ul id="material-list" class="divide-y divide-slate-200">
             <li class="material-item p-4" data-category="foundation">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="tuff-blocks"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   10
                 </div>
@@ -440,11 +289,6 @@
             </li>
             <li class="material-item p-4" data-category="foundation">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="paver-base"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   15
                 </div>
@@ -459,11 +303,6 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="4x4-posts"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   2
                 </div>
@@ -480,11 +319,6 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="2x8-16ft-beams"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   2
                 </div>
@@ -501,11 +335,6 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="2x8-12ft-joists"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   3
                 </div>
@@ -521,11 +350,6 @@
             </li>
             <li class="material-item p-4" data-category="lumber">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="plywood-sheets"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   2
                 </div>
@@ -539,11 +363,6 @@
             </li>
             <li class="material-item p-4" data-category="foundation">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="landscape-fabric"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1
                 </div>
@@ -557,11 +376,6 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="joist-hangers"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   10
                 </div>
@@ -577,11 +391,6 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="hanger-nails"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 box
                 </div>
@@ -597,11 +406,6 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="structural-screws"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 box
                 </div>
@@ -617,11 +421,6 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="decking-screws"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 box
                 </div>
@@ -635,11 +434,6 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="wood-preservative"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   1 can
                 </div>
@@ -654,11 +448,6 @@
             </li>
             <li class="material-item p-4" data-category="hardware">
               <div class="flex items-start">
-                <input
-                  type="checkbox"
-                  class="material-checkbox mr-3 mt-1 text-amber-600 rounded focus:ring-amber-500"
-                  data-item="ground-anchors"
-                />
                 <div class="font-bold text-amber-700 w-12 text-center text-2xl">
                   4
                 </div>
@@ -688,9 +477,7 @@
             class="accordion-item bg-white rounded-xl shadow-lg border border-slate-100"
           >
             <button
-              class="accordion-header w-full flex justify-between items-center text-left p-6 min-h-[60px] hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
-              aria-expanded="false"
-              aria-controls="phase1-content"
+              class="accordion-header w-full flex justify-between items-center text-left p-6"
             >
               <span class="text-xl font-semibold"
                 >Phase 1: Site Preparation & Layout</span
@@ -927,171 +714,81 @@
             <h3 class="font-semibold text-center mb-2">
               Top-Down Framing Plan
             </h3>
-            <p class="text-sm text-slate-600 text-center mb-4 md:hidden">
-              Tap components to see descriptions
-            </p>
             <div
-              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[280px] flex flex-col justify-center"
+              class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 relative h-[250px] flex flex-col justify-center"
             >
               <div
-                class="diagram-component absolute top-4 left-1/2 -translate-x-1/2 text-sm text-slate-600 bg-white/80 px-2 py-1 rounded shadow-sm"
+                class="diagram-component absolute top-2 left-1/2 -translate-x-1/2 text-xs text-slate-500"
                 data-tooltip-text="Overall length of the foundation frame."
               >
                 &lt;-- 16' --&gt;
               </div>
               <div
-                class="diagram-component absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-600 bg-white/80 px-2 py-1 rounded shadow-sm"
+                class="diagram-component absolute right-2 top-1/2 -translate-y-1/2 text-xs text-slate-500"
                 data-tooltip-text="Overall width of the foundation frame."
               >
                 4'
               </div>
 
-              <!-- Top Beam (16-foot beam running horizontally) -->
               <div
-                class="diagram-component border-2 border-amber-600 bg-amber-100 h-6 w-full relative z-20"
+                class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full"
                 data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
-              >
-                <!-- Joist Hangers on top beam (5 interior joists only) -->
+              ></div>
+              <div class="flex-grow flex items-center justify-between relative">
                 <div
-                  class="absolute top-0 left-[14.3%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #1"
+                  class="diagram-component border-2 border-slate-500 h-full w-4 bg-slate-200"
+                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
+                <div class="flex-grow flex items-center justify-around px-2">
+                  <div
+                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
+                  ></div>
+                  <div
+                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
+                  ></div>
+                  <div
+                    class="diagram-component border border-dashed border-slate-400 h-full w-4 bg-slate-50"
+                    data-tooltip-text="45-inch 2x8 Interior Joist. Sits in a hanger."
+                  ></div>
+                </div>
                 <div
-                  class="absolute top-0 left-[28.6%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #2"
-                ></div>
-                <div
-                  class="absolute top-0 left-[42.9%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #3"
-                ></div>
-                <div
-                  class="absolute top-0 left-[57.1%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #4"
-                ></div>
-                <div
-                  class="absolute top-0 left-[71.4%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #5"
-                ></div>
-              </div>
-
-              <!-- Main Joist Area (4-foot span) -->
-              <div class="flex-grow relative">
-                <!-- End Joists (directly attached to beams, no hangers) -->
-                <div
-                  class="diagram-component absolute left-0 top-0 w-4 h-full bg-slate-300 border-2 border-slate-600 shadow-sm z-10"
-                  data-tooltip-text="End Joist: 45-inch 2x8 face-screwed directly through the beam. No hanger needed."
-                ></div>
-                <div
-                  class="diagram-component absolute right-0 top-0 w-4 h-full bg-slate-300 border-2 border-slate-600 shadow-sm z-10"
-                  data-tooltip-text="End Joist: 45-inch 2x8 face-screwed directly through the beam. No hanger needed."
-                ></div>
-
-                <!-- Interior Joists (5 total, in joist hangers) -->
-                <div
-                  class="diagram-component absolute left-[14.3%] top-0 w-3 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
-                  data-tooltip-text="Interior Joist #1: 45-inch 2x8 sits in joist hangers."
-                ></div>
-                <div
-                  class="diagram-component absolute left-[28.6%] top-0 w-3 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
-                  data-tooltip-text="Interior Joist #2: 45-inch 2x8 sits in joist hangers."
-                ></div>
-                <div
-                  class="diagram-component absolute left-[42.9%] top-0 w-3 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
-                  data-tooltip-text="Interior Joist #3: 45-inch 2x8 sits in joist hangers."
-                ></div>
-                <div
-                  class="diagram-component absolute left-[57.1%] top-0 w-3 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
-                  data-tooltip-text="Interior Joist #4: 45-inch 2x8 sits in joist hangers."
-                ></div>
-                <div
-                  class="diagram-component absolute left-[71.4%] top-0 w-3 h-full bg-slate-100 border-2 border-slate-400 shadow-sm"
-                  data-tooltip-text="Interior Joist #5: 45-inch 2x8 sits in joist hangers."
+                  class="diagram-component border-2 border-slate-500 h-full w-4 bg-slate-200"
+                  data-tooltip-text="End Joist: Face-screwed directly through the beam. No hanger needed."
                 ></div>
               </div>
-
-              <!-- Bottom Beam (16-foot beam running horizontally) -->
               <div
-                class="diagram-component border-2 border-amber-600 bg-amber-100 h-6 w-full relative z-20"
+                class="diagram-component border-2 border-amber-600 bg-amber-100 h-8 w-full"
                 data-tooltip-text="16-foot 2x8 Pressure Treated Beam. This sits in the notched 4x4 posts."
+              ></div>
+
+              <div
+                class="absolute bottom-[-20px] w-full flex justify-around text-amber-700 text-xl"
               >
-                <!-- Joist Hangers on bottom beam (5 interior joists only) -->
-                <div
-                  class="absolute bottom-0 left-[14.3%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #1"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[28.6%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #2"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[42.9%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #3"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[57.1%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #4"
-                ></div>
-                <div
-                  class="absolute bottom-0 left-[71.4%] w-2 h-2 bg-slate-500 border border-slate-600 diagram-component"
-                  data-tooltip-text="Joist Hanger: Metal bracket for interior joist #5"
-                ></div>
-              </div>
-
-              <!-- Support Point Indicators - 10 total (5 per beam) -->
-              <!-- Top beam supports -->
-              <div class="absolute top-1 w-full text-amber-700 text-lg z-30">
                 <span
-                  class="diagram-component absolute left-1"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under top beam."
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
-                  class="diagram-component absolute left-1/4 -translate-x-1/2"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under top beam."
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
-                  class="diagram-component absolute left-1/2 -translate-x-1/2"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under top beam."
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
-                  class="diagram-component absolute left-3/4 -translate-x-1/2"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under top beam."
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
                 <span
-                  class="diagram-component absolute right-1"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under top beam."
-                  >▲</span
-                >
-              </div>
-
-              <!-- Bottom beam supports -->
-              <div class="absolute bottom-1 w-full text-amber-700 text-lg z-30">
-                <span
-                  class="diagram-component absolute left-1"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under bottom beam."
-                  >▲</span
-                >
-                <span
-                  class="diagram-component absolute left-1/4 -translate-x-1/2"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under bottom beam."
-                  >▲</span
-                >
-                <span
-                  class="diagram-component absolute left-1/2 -translate-x-1/2"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under bottom beam."
-                  >▲</span
-                >
-                <span
-                  class="diagram-component absolute left-3/4 -translate-x-1/2"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under bottom beam."
-                  >▲</span
-                >
-                <span
-                  class="diagram-component absolute right-1"
-                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post under bottom beam."
+                  class="diagram-component"
+                  data-tooltip-text="Support Point: Tuff Block & Notched 4x4 Post below."
                   >▲</span
                 >
               </div>
@@ -1102,55 +799,48 @@
             <h3 class="font-semibold text-center mb-2">
               Side View (Notched Post Detail)
             </h3>
-            <p class="text-sm text-slate-600 text-center mb-4 md:hidden">
-              Tap components to see descriptions
-            </p>
             <div
               class="bg-white p-4 rounded-xl shadow-lg border border-slate-100 h-[250px] flex flex-col"
             >
+              <div
+                class="diagram-component h-4 w-full bg-slate-300"
+                data-tooltip-text="3/4-inch Plywood Sheathing. This is your shed floor."
+              ></div>
               <div class="flex-grow flex flex-col justify-end relative">
-                <!-- Plywood sits on top of beams -->
-                <div
-                  class="diagram-component h-4 w-full bg-slate-300 border border-slate-400 mb-0 z-10"
-                  data-tooltip-text="3/4-inch Plywood Sheathing. This is your shed floor."
-                ></div>
-
-                <!-- Posts and Beams Structure -->
-                <div class="flex justify-around items-end h-24 -mt-4">
+                <div class="flex justify-around items-end h-full">
                   <!-- Notched Post 1 -->
-                  <div class="relative w-8 h-full">
+                  <div class="relative w-8 h-24">
                     <div
-                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/60"
+                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/50"
                       data-tooltip-text="Main 4x4 Post."
                     ></div>
                     <div
-                      class="diagram-component absolute top-4 right-0 w-1/2 h-full bg-yellow-900/60"
+                      class="diagram-component absolute top-0 right-0 w-1/2 h-full bg-yellow-900/50"
                       data-tooltip-text="The back of the 4x4 Post supporting the beam."
                     ></div>
                     <div
-                      class="diagram-component absolute top-4 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
+                      class="diagram-component absolute top-0 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
                       data-tooltip-text="2x8 Beam seated securely in the post notch for superior strength."
                     ></div>
                   </div>
                   <!-- Notched Post 2 -->
-                  <div class="relative w-8 h-full">
+                  <div class="relative w-8 h-24">
                     <div
-                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/60"
+                      class="diagram-component absolute bottom-0 left-0 w-full h-16 bg-yellow-900/50"
                       data-tooltip-text="Main 4x4 Post."
                     ></div>
                     <div
-                      class="diagram-component absolute top-4 right-0 w-1/2 h-full bg-yellow-900/60"
+                      class="diagram-component absolute top-0 right-0 w-1/2 h-full bg-yellow-900/50"
                       data-tooltip-text="The back of the 4x4 Post supporting the beam."
                     ></div>
                     <div
-                      class="diagram-component absolute top-4 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
+                      class="diagram-component absolute top-0 left-0 h-8 w-full bg-amber-100 border-2 border-amber-600"
                       data-tooltip-text="2x8 Beam seated securely in the post notch for superior strength."
                     ></div>
                   </div>
                 </div>
 
-                <!-- Tuff Blocks -->
-                <div class="flex justify-around h-8">
+                <div class="flex justify-around h-8 -mt-8">
                   <div
                     class="diagram-component w-12 h-full bg-gray-500"
                     data-tooltip-text="Tuff Block. Holds the post."
@@ -1160,9 +850,7 @@
                     data-tooltip-text="Tuff Block. Holds the post."
                   ></div>
                 </div>
-
-                <!-- Gravel Pads -->
-                <div class="flex justify-around h-4">
+                <div class="flex justify-around h-4 mt-0">
                   <div
                     class="diagram-component w-16 bg-stone-400"
                     data-tooltip-text="Compacted Gravel Pad. Creates a stable base for the Tuff Block."
@@ -1182,116 +870,6 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // Local Storage Keys
-        const TOOLS_STORAGE_KEY = "shed-tools-checklist";
-        const MATERIALS_STORAGE_KEY = "shed-materials-checklist";
-
-        // Load saved states from localStorage
-        function loadChecklistStates() {
-          // Load tool checklist states
-          const savedTools = JSON.parse(
-            localStorage.getItem(TOOLS_STORAGE_KEY) || "{}"
-          );
-          document
-            .querySelectorAll('.tool-item input[type="checkbox"]')
-            .forEach((checkbox, index) => {
-              const itemKey = `tool-${index}`;
-              if (savedTools[itemKey]) {
-                checkbox.checked = true;
-              }
-            });
-
-          // Load material checklist states
-          const savedMaterials = JSON.parse(
-            localStorage.getItem(MATERIALS_STORAGE_KEY) || "{}"
-          );
-          document
-            .querySelectorAll(".material-checkbox")
-            .forEach((checkbox) => {
-              const itemKey = checkbox.dataset.item;
-              if (savedMaterials[itemKey]) {
-                checkbox.checked = true;
-              }
-            });
-        }
-
-        // Save checklist states to localStorage
-        function saveToolStates() {
-          const toolStates = {};
-          document
-            .querySelectorAll('.tool-item input[type="checkbox"]')
-            .forEach((checkbox, index) => {
-              const itemKey = `tool-${index}`;
-              toolStates[itemKey] = checkbox.checked;
-            });
-          localStorage.setItem(TOOLS_STORAGE_KEY, JSON.stringify(toolStates));
-        }
-
-        function saveMaterialStates() {
-          const materialStates = {};
-          document
-            .querySelectorAll(".material-checkbox")
-            .forEach((checkbox) => {
-              const itemKey = checkbox.dataset.item;
-              materialStates[itemKey] = checkbox.checked;
-            });
-          localStorage.setItem(
-            MATERIALS_STORAGE_KEY,
-            JSON.stringify(materialStates)
-          );
-        }
-
-        // Clear all buttons
-        document.getElementById("clear-tools").addEventListener("click", () => {
-          document
-            .querySelectorAll('.tool-item input[type="checkbox"]')
-            .forEach((checkbox) => {
-              checkbox.checked = false;
-            });
-          localStorage.removeItem(TOOLS_STORAGE_KEY);
-        });
-
-        document
-          .getElementById("clear-materials")
-          .addEventListener("click", () => {
-            document
-              .querySelectorAll(".material-checkbox")
-              .forEach((checkbox) => {
-                checkbox.checked = false;
-              });
-            localStorage.removeItem(MATERIALS_STORAGE_KEY);
-          });
-
-        // Add event listeners to save states when checkboxes change
-        document
-          .querySelectorAll('.tool-item input[type="checkbox"]')
-          .forEach((checkbox) => {
-            checkbox.addEventListener("change", saveToolStates);
-          });
-
-        document.querySelectorAll(".material-checkbox").forEach((checkbox) => {
-          checkbox.addEventListener("change", saveMaterialStates);
-        });
-
-        // Load initial states
-        loadChecklistStates();
-
-        // Mobile Navigation Toggle
-        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        const mobileNav = document.getElementById("mobile-nav");
-        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
-
-        mobileMenuBtn.addEventListener("click", () => {
-          mobileNav.classList.toggle("open");
-        });
-
-        // Close mobile nav when clicking a link
-        mobileNavLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            mobileNav.classList.remove("open");
-          });
-        });
-
         // Navigation Active State
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-link");
@@ -1344,10 +922,6 @@
           header.addEventListener("click", () => {
             const isOpen = content.classList.contains("open");
 
-            // Close all others
-            // document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-            // document.querySelectorAll('.accordion-icon').forEach(i => { i.textContent = '+'; i.classList.remove('rotate-45'); });
-
             if (isOpen) {
               content.classList.remove("open");
               icon.textContent = "+";
@@ -1360,67 +934,29 @@
           });
         });
 
-        // Diagram Tooltip Logic (Enhanced for Mobile)
+        // Diagram Tooltip Logic
         const tooltip = document.getElementById("tooltip");
         const diagramComponents =
           document.querySelectorAll(".diagram-component");
-        let activeTooltip = null;
-
-        // Check if device supports touch
-        const isTouchDevice =
-          "ontouchstart" in window || navigator.maxTouchPoints > 0;
 
         diagramComponents.forEach((comp) => {
-          if (isTouchDevice) {
-            // Touch devices: click to show/hide tooltip
-            comp.addEventListener("click", (e) => {
-              e.preventDefault();
-              const text = comp.dataset.tooltipText;
-              if (text) {
-                if (activeTooltip === comp) {
-                  // Hide if already active
-                  tooltip.style.opacity = "0";
-                  activeTooltip = null;
-                } else {
-                  // Show new tooltip
-                  tooltip.textContent = text;
-                  tooltip.style.left = `${e.pageX + 15}px`;
-                  tooltip.style.top = `${e.pageY + 15}px`;
-                  tooltip.style.opacity = "1";
-                  activeTooltip = comp;
-                }
-              }
-            });
-          } else {
-            // Desktop: hover behavior
-            comp.addEventListener("mouseover", (e) => {
-              const text = comp.dataset.tooltipText;
-              if (text) {
-                tooltip.textContent = text;
-                tooltip.style.opacity = "1";
-              }
-            });
-
-            comp.addEventListener("mousemove", (e) => {
-              tooltip.style.left = `${e.pageX + 15}px`;
-              tooltip.style.top = `${e.pageY + 15}px`;
-            });
-
-            comp.addEventListener("mouseout", () => {
-              tooltip.style.opacity = "0";
-            });
-          }
-        });
-
-        // Close tooltip when clicking elsewhere (touch devices)
-        if (isTouchDevice) {
-          document.addEventListener("click", (e) => {
-            if (!e.target.closest(".diagram-component")) {
-              tooltip.style.opacity = "0";
-              activeTooltip = null;
+          comp.addEventListener("mouseover", (e) => {
+            const text = comp.dataset.tooltipText;
+            if (text) {
+              tooltip.textContent = text;
+              tooltip.style.opacity = "1";
             }
           });
-        }
+
+          comp.addEventListener("mousemove", (e) => {
+            tooltip.style.left = `${e.pageX + 15}px`;
+            tooltip.style.top = `${e.pageY + 15}px`;
+          });
+
+          comp.addEventListener("mouseout", () => {
+            tooltip.style.opacity = "0";
+          });
+        });
       });
     </script>
   </body>
